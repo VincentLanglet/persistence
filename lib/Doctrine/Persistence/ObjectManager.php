@@ -7,6 +7,8 @@ use Doctrine\Persistence\Mapping\ClassMetadataFactory;
 
 /**
  * Contract for a Doctrine persistence layer ObjectManager class to implement.
+ *
+ * @template R of ObjectRepository
  */
 interface ObjectManager
 {
@@ -120,7 +122,7 @@ interface ObjectManager
      *
      * @template T
      * @psalm-param class-string<T> $className
-     * @psalm-return ObjectRepository<T>
+     * @psalm-return R<T>
      */
     public function getRepository($className);
 
